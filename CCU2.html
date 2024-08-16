@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>봉고마스터 - 재미 명령어</title>
+    <link rel="icon" href="images/zit.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .sidebar {
+            width: 200px;
+            padding: 10px;
+            margin-right: 20px;
+        }
+
+        .sidebar .command-button {
+            display: block;
+            background-color: #d1bfa7; /* 기본 배경색 */
+            color: #000;
+            border: none;
+            font-size: 1em;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            text-align: left;
+            width: 65%; /* 버튼 길이를 100%로 설정 */
+        }
+
+        .sidebar .command-button:hover {
+            background-color: #b5a89d; /* 호버 시 배경색 */
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .command-description {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background-color: #ffffff;
+            max-height: 200px; /* 최대 높이 설정 */
+            overflow-y: auto; /* 세로 스크롤 가능하도록 설정 */
+        }
+
+        .command-description.active {
+            display: block;
+        }
+
+        fter {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #e0e0e0;
+            color: #333;
+            font-size: 1em;
+        }
+
+        fter p {
+            margin: 0;
+        }
+
+        .fter-links {
+            margin-top: 10px;
+        }
+
+        .fter-links a {
+            color: #d1bfa7;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+        }
+
+        .fter-links a:hover {
+            color: #b5a89d;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-color: #d1bfa7;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <div class="logo">
+                <img src="images/zit.png" alt="봉고마스터 로고">
+                <span class="logo-text">봉고마스터</span>
+            </div>
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 소개</a></li>
+                    <li><a href="commands.html" class="active"><i class="fas fa-keyboard"></i> 명령어</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> 문의</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <button class="command-button" onclick="showDescription('낚시')">낚시</button>
+            <button class="command-button" onclick="showDescription('롤렛게임')">롤렛게임</button>
+            <button class="command-button" onclick="showDescription('물고기등급')">물고기등급</button>
+            <button class="command-button" onclick="showDescription('송금')">송금</button>
+            <button class="command-button" onclick="showDescription('순발력')">순발력</button>
+            <button class="command-button" onclick="showDescription('홀짝게임')">홀짝게임</button>
+            <button class="command-button" onclick="showDescription('자산순위')">자산순위</button>
+            <button class="command-button" onclick="showDescription('유튜브검색')">유튜브검색</button>
+        </div>
+        <div class="content">
+            <div class="section-title">재미 명령어</div>
+            <div id="낚시" class="command-description">
+                <h3>/낚시</h3>
+                <p>이 명령어를 사용하여 물고기를 잡아 돈을 얻을수 있습니다</p>
+            </div>
+            <div id="롤렛게임" class="command-description">
+                <h3>/롤렛게임</h3>
+                <p>롤렛 도박게임을 시작하여 랜덤하게 결과를 확인할 수 있습니다.</p>
+            </div>
+            <div id="물고기등급" class="command-description">
+                <h3>/물고기등급</h3>
+                <p>다른 사용자에게 잔액를 송금할 수 있는 명령어입니다. </p>
+            </div>
+            <div id="송금" class="command-description">
+                <h3>/송금</h3>
+                <p>이 명령어는 서버의 기본 정보를 보여줍니다.</p>
+            </div>
+            <div id="순발력" class="command-description">
+                <h3>/순발력</h3>
+                <p>순발력 게임을 통해 반응 속도를 테스트할 수 있습니다.</p>
+            </div>
+                <div id="홀짝게임" class="command-description">
+                <h3>/홀짝게임</h3>
+                <p>홀짝 게임을 시작하여 홀수 또는 짝수를 선택하는 간단한 도박게임입니다.</p>
+            </div>
+                <div id="자산순위" class="command-description">
+                <h3>/자산순위</h3>
+                <p>이 명령어를 사용하여 모든 사용자의 자산 순위를 확인할 수 있습니다.</p>
+            </div>
+                <div id="유튜브검색" class="command-description">
+                <h3>/유튜브검색</h3>
+                <p>이 명령어를 통해 유튜브에서 원하는 동영상이나 채널을 검색할 수 있습니다.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 봉고마스터. 모든 권리 보유.</p>
+        <div class="footer-links">
+            <a href="privacy-policy.html" class="footer-button">개인정보 약관</a>
+            <a href="terms-of-service.html" class="footer-button">서비스 이용약관</a>
+        </div>
+    </footer>
+
+    <script>
+        function showDescription(id) {
+            // 모든 명령어 설명 숨기기
+            var descriptions = document.querySelectorAll('.command-description');
+            descriptions.forEach(function(description) {
+                description.classList.remove('active');
+            });
+
+            // 클릭한 명령어 설명 보이기
+            var element = document.getElementById(id);
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+
+        // 페이지 로드 시 첫 번째 명령어 활성화
+        window.onload = function() {
+            showDescription('낚시');
+        }
+    </script>
+</body>
+</html>

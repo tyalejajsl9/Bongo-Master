@@ -1,0 +1,297 @@
+/* 기본 스타일 */
+/* 기본 스타일 */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    overflow-x: hidden; /* 가로 스크롤 숨기기 */
+    box-sizing: border-box; /* 전체 박스 모델에 패딩과 보더 포함 */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit; /* 모든 요소에 box-sizing 적용 */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-bottom: 2px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 35px; /* 로고 이미지의 너비 조정 */
+    height: 35px; /* 로고 이미지의 높이 조정 */
+    border-radius: 50%; /* 원형으로 만들기 */
+    object-fit: cover; /* 이미지 비율 유지 */
+}
+
+.logo-text {
+    margin-left: 10px; /* 이미지와 텍스트 사이의 간격 */
+    font-size: 1em; /* 텍스트 크기 */
+    font-weight: bold; /* 텍스트 두껍게 */
+    color: #333; /* 텍스트 색상 */
+}
+
+.top-nav {
+    display: flex;
+}
+
+.top-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.top-nav ul li {
+    margin: 0 3px;
+}
+
+.top-nav ul li a {
+    display: flex;
+    align-items: center;
+    background-color: #f4f4f4;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    white-space: nowrap;
+}
+
+.top-nav ul li a i {
+    margin-right: 5px; /* 아이콘과 텍스트 사이의 간격 */
+}
+
+.top-nav ul li a:hover {
+    background-color: #d1bfa7;
+    color: #ffffff;
+    transform: scale(1.05); /* 버튼 확대 효과 */
+}
+
+.top-nav ul li a.active {
+    background-color: #d1bfa7;
+    color: #000;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    max-width: 100%; /* 최대 너비를 화면에 맞춤 */
+}
+
+.intro-content {
+    max-width: 600px;
+    width: 100%; /* 부모 요소를 초과하지 않도록 설정 */
+}
+
+#intro h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#intro p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #d1bfa7;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button i {
+    margin-right: 8px; /* 아이콘과 텍스트 사이의 간격 */
+}
+
+.cta-button:hover {
+    background-color: #b5a89d;
+    color: #ffffff;
+    transform: scale(1.05); /* 버튼 확대 효과 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 그림자 효과 */
+}
+
+footer {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #e0e0e0;
+    color: #333;
+    font-size: 1em;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-nav ul {
+        flex-direction: column;
+    }
+
+    .top-nav ul li {
+        margin: 3px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        width: 60px; /* 모바일 화면에서 로고 크기 조정 */
+        height: 60px;
+    }
+
+    .logo-text {
+        font-size: 1.2em; /* 모바일 화면에서 텍스트 크기 조정 */
+    }
+
+    .top-nav ul li a {
+        padding: 10px;
+        font-size: 0.8em;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    #intro h2 {
+        font-size: 2em;
+    }
+
+    #intro p {
+        font-size: 1em;
+    }
+
+    .cta-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .topbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .top-nav ul li {
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    .top-nav ul li a {
+        padding: 12px;
+        font-size: 0.8em;
+        text-align: center;
+        width: 100%;
+    }
+
+    #intro h2 {
+        font-size: 1.5em;
+    }
+
+    #intro p {
+        font-size: 0.9em;
+    }
+
+    .cta-button {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+}
+
+/* 버튼을 텍스트 링크로 보이게 하기 위한 클래스 */
+.footer-links {
+    margin-top: 10px; /* 버튼들 사이의 간격 */
+}
+
+.footer-button {
+    display: inline;
+    background-color: transparent; /* 배경색 제거 */
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 0; /* 테두리 제거 */
+    transition: color 0.3s, transform 0.3s;
+    margin: 0 5px; /* 버튼 사이의 간격 조정 */
+}
+
+.footer-button:hover {
+    color: #000;
+    transform: scale(1.05); /* 텍스트 확대 효과 */
+}
+
+.category-button {
+    background-color: #d1bfa7;
+    color: #000;
+    border: none;
+    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    align-items: center;
+}
+
+.category-button i {
+    margin-right: 8px; /* 아이콘과 텍스트 사이의 간격 */
+}
+
+.category-button:hover {
+    background-color: #b5a89d;
+    color: #ffffff;
+    transform: scale(1.05);
+}
