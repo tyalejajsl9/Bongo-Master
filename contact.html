@@ -30,6 +30,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px; /* 아이콘과 텍스트 간격 */
+            cursor: pointer;
         }
 
         .contact-button i {
@@ -42,6 +43,18 @@
             transform: scale(1.05);
         }
     </style>
+    <script>
+        function toggleEmail(button) {
+            const email = "qnxitbxkyn@gmail.com";
+            const originalText = '<i class="fas fa-envelope"></i> Email로 문의하기';
+
+            if (button.innerHTML.includes(email)) {
+                button.innerHTML = originalText;
+            } else {
+                button.innerHTML = email;
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -66,9 +79,9 @@
                 <h2>문의하기</h2>
                 <p>봉고에 대한 질문이나 피드백이 있으시면 아래 버튼을 통해 문의해 주세요.</p>
                 <div class="contact-buttons">
-                    <a href="mailto:qnxitbxkyn@gmail.com" class="contact-button">
+                    <button class="contact-button" onclick="toggleEmail(this)">
                         <i class="fas fa-envelope"></i> Email로 문의하기
-                    </a>
+                    </button>
                     <a href="https://discord.gg/jb9uWnwqJu" target="_blank" class="contact-button">
                         <i class="fab fa-discord"></i> 디스코드로 문의하기
                     </a>
