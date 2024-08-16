@@ -1,0 +1,9 @@
+<script type="text/javascript">
+  var filename = window.location.pathname.split('/').pop();
+  if (!filename) {
+    filename = "index.html";
+  } else if (!filename.endsWith(".html")) {
+    filename += ".html";
+  }
+  window.location.href = '/' + filename;
+</script>
