@@ -8,39 +8,71 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+
+        .sidebar {
+            width: 200px;
+            padding: 10px;
+            margin-right: 20px;
+        }
+
+        .sidebar .command-button {
+            display: block;
+            background-color: #d1bfa7; /* 기본 배경색 */
+            color: #000;
+            border: none;
+            font-size: 1em;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            text-align: left;
+            width: 65%; /* 버튼 길이를 100%로 설정 */
+        }
+
+        .sidebar .command-button:hover {
+            background-color: #b5a89d; /* 호버 시 배경색 */
+            color: #fff;
+            transform: scale(1.05);
+        }
+
         .content {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #333;
+            flex: 1;
         }
 
-        .small-text {
-            font-size: 0.9em; /* 작은 글꼴 크기 */
-            color: #666; /* 글꼴 색상 조정 */
+        .command-description {
+            display: none;
             margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background-color: #ffffff;
+            max-height: 200px; /* 최대 높이 설정 */
+            overflow-y: auto; /* 세로 스크롤 가능하도록 설정 */
         }
 
-        .footer {
+        .command-description.active {
+            display: block;
+        }
+
+        fter {
             background-color: #ffffff;
             text-align: center;
             padding: 20px;
             border-top: 2px solid #e0e0e0;
             color: #333;
             font-size: 1em;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
         }
 
-        .footer p {
+        fter p {
             margin: 0;
         }
 
-        .footer-links {
+        .fter-links {
             margin-top: 10px;
         }
 
-        .footer-links a {
+        .fter-links a {
             color: #d1bfa7;
             text-decoration: none;
             font-size: 0.9em;
@@ -50,10 +82,16 @@
             transition: color 0.3s, background-color 0.3s, border-color 0.3s;
         }
 
-        .footer-links a:hover {
+        .fter-links a:hover {
             color: #b5a89d;
             background-color: rgba(0, 0, 0, 0.05);
             border-color: #d1bfa7;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -75,13 +113,50 @@
     </header>
 
     <main>
+        <div class="sidebar">
+            <button class="command-button" onclick="showDescription('청소')">청소</button>
+            <button class="command-button" onclick="showDescription('킥')">킥</button>
+            <button class="command-button" onclick="showDescription('타임아웃')">'타임아웃</button>
+            <button class="command-button" onclick="showDescription('밴')">밴</button>
+            <button class="command-button" onclick="showDescription('밴해제')">밴해제</button>
+            <button class="command-button" onclick="showDescription('타임아웃해제')">'타임아웃해제</button>
+        </div>
         <div class="content">
-            <p>업데이트 중입니다.</p>
-            <p class="small-text">업데이트를 통해 보다 더 좋은 서비스를 제공하겠습니다</p>
+            <div class="section-title">관리 명령어</div>
+            <div id="청소" class="command-description">
+                <h3>/청소</h3>
+                <p>채팅에서 특정 수의 메시지를 삭제하는 명령어입니다 </p>
+                <p>관리자 권한 소유자만 해당 명령어 사용이 가능합니다 </p>
+            </div>
+            <div id="킥" class="command-description">
+                <h3>/킥</h3>
+                <p>서버에서 사용자를 강제로 퇴장시키는 명령어입니다 </p>
+                <p>킥 권한 소유자만 해당 명령어 사용이 가능합니다 </p>
+            </div>
+            <div id="'타임아웃" class="command-description">
+                <h3>/'타임아웃</h3>
+                <p>서버에서 사용자를 일정 시간 동안 타임아웃시키는 명령어입니다.</p>
+                <p>타임아웃 권한 소유자만 해당 명령어 사용이 가능합니다 </p>
+            </div>
+            <div id="밴" class="command-description">
+                <h3>/밴</h3>
+                <p>서버에서 사용자를 영구적으로 추방하는 명령어입니다.</p>
+                <p>밴 권한 소유자만 해당 명령어 사용이 가능합니다 </p>
+            </div>
+            <div id="밴해제" class="command-description">
+                <h3>/밴해제</h3>
+                <p>서버에서 밴된 사용자의 밴을 해제하는 명령어입니다.</p>
+                <p>밴 권한 소유자만 해당 명령어 사용이 가능합니다 </p>
+            </div>
+                <div id="'타임아웃해제" class="command-description">
+                <h3>/'타임아웃해제</h3>
+                <p>서버에서 타임아웃된 사용자의 타임아웃을 해제하는 명령어입니다.</p>
+                <p>타임아웃 권한 소유자만 해당 명령어 사용이 가능합니다 </p>
+            </div>
         </div>
     </main>
 
-    <footer class="footer">
+    <footer>
         <p>&copy; 2024 봉고마스터. 모든 권리 보유.</p>
         <div class="footer-links">
             <a href="privacy-policy" class="footer-button">개인정보 약관</a>
@@ -89,5 +164,26 @@
         </div>
     </footer>
 
+    <script>
+        function showDescription(id) {
+            // 모든 명령어 설명 숨기기
+            var descriptions = document.querySelectorAll('.command-description');
+            descriptions.forEach(function(description) {
+                description.classList.remove('active');
+            });
+
+            // 클릭한 명령어 설명 보이기
+            var element = document.getElementById(id);
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+
+        // 페이지 로드 시 첫 번째 명령어 활성화
+        window.onload = function() {
+            showDescription('청소');
+        }
+    </script>
 </body>
 </html>
+
